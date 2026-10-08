@@ -126,7 +126,7 @@ require __DIR__ . '/../includes/header.php';
 
         <div class="row justify-content-center gy-4" data-reveal-stagger>
             <?php foreach (content('offers') as $offer): ?>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-sm-6">
                     <div class="our-offers-list-item text-center h-100">
                         <img src="<?= e($offer['logo']) ?>" alt="<?= e($offer['name']) ?>" class="img-fluid" loading="lazy">
                         <span class="d-block text-white font-pop-sbld"><?= e($offer['name']) ?></span>

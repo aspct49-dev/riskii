@@ -55,6 +55,12 @@ return [
             'logo'  => '/images/roobet-logo.png',
             'link'  => 'https://roobet.com/?ref=riiski',
         ],
+        [
+            'name'  => 'Datdrop',
+            'bonus' => '5% Deposit Bonus',
+            'logo'  => '/images/datdrop-logo.webp',
+            'link'  => 'https://datdrop.com/p/riiski',
+        ],
     ],
 
 
