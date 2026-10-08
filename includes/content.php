@@ -15,7 +15,7 @@ return [
     'offers' => [
         [
             'name'  => 'Gamba',
-            'bonus' => '200% Welcome Bonus',
+            'bonus' => '$1K Leaderboard',
             'logo'  => '/images/gamba-logo-light.png',
             'link'  => 'https://gamba.com/?c=RiiSki',
         ],
