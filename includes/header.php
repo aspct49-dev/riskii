@@ -6,7 +6,7 @@
 require_once __DIR__ . '/config.php';
 
 $PAGE_TITLE = $PAGE_TITLE ?? SITE_NAME;
-$PAGE_DESC  = $PAGE_DESC  ?? 'Exclusive ' . SPONSOR_NAME . ' bonuses, wager milestones and a monthly leaderboard with real payouts.';
+$PAGE_DESC  = $PAGE_DESC  ?? 'Exclusive ' . SPONSOR_NAME . ' bonuses and a monthly leaderboard with real payouts.';
 $BODY_CLASS = $BODY_CLASS ?? '';
 $ACTIVE     = $ACTIVE     ?? '';
 // Page-specific stylesheets, e.g. $PAGE_CSS = ['css/rewards.css'];
@@ -43,18 +43,18 @@ $NAV = [
     <meta name="twitter:description" content="<?= e($PAGE_DESC) ?>">
 
     <title><?= e($PAGE_TITLE) ?></title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <!-- Loaded last: the rebrand layer retints the tokens the two files above use. -->
-    <link rel="stylesheet" href="css/refresh.css">
+    <link rel="stylesheet" href="/css/refresh.css">
     <?php foreach ($PAGE_CSS as $sheet): ?>
         <link rel="stylesheet" href="<?= e($sheet) ?>">
     <?php endforeach; ?>
@@ -79,15 +79,15 @@ $NAV = [
     <div class="container header-bar">
         <div class="menu-left">
             <div class="logo-container">
-                <a href="./" aria-label="<?= e(SITE_NAME) ?> home">
+                <a href="/" aria-label="<?= e(SITE_NAME) ?> home">
                     <!-- The poster is the video's own first frame, same size and
                          padding, so the swap when the video starts is invisible.
                          The old poster (logo.png) was cropped tight to the
                          wordmark, so the logo drew ~19% larger until the video
                          loaded and then shrank — a zoom on every page change. -->
                     <video class="logo-video" width="1018" height="158" loop muted autoplay playsinline
-                           preload="auto" poster="images/logo-poster.webp" aria-hidden="true">
-                        <source src="images/logo.webm" type="video/webm">
+                           preload="auto" poster="/images/logo-poster.webp" aria-hidden="true">
+                        <source src="/images/logo.webm" type="video/webm">
                     </video>
                 </a>
             </div>
@@ -115,8 +115,8 @@ $NAV = [
             </nav>
         </div>
 
-        <a href="rewards" class="claim-rewards-btn<?= $ACTIVE === 'rewards' ? ' is-current' : '' ?>">
-            <i class="fa-solid fa-gift"></i> Rewards
+        <a href="<?= e(SPONSOR_LINK) ?>" target="_blank" rel="noopener sponsored" class="claim-rewards-btn">
+            <i class="fa-solid fa-gift"></i> Claim Bonus
         </a>
 
         <button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">

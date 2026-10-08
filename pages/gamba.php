@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/api/gamba.php';
+require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/gamba.php';
 
 $race = gamba_race();
 
@@ -11,7 +11,7 @@ $PAGE_DESC  = 'Sign up to ' . SPONSOR_NAME . ' with code ' . SPONSOR_CODE
 $BODY_CLASS = 'home sponsor-page';
 $ACTIVE     = 'gamba';
 
-require __DIR__ . '/includes/header.php';
+require __DIR__ . '/../includes/header.php';
 ?>
 
 <section class="gm-lb-hero">
@@ -41,7 +41,7 @@ require __DIR__ . '/includes/header.php';
         <div class="banner-content d-flex justify-content-center align-items-center flex-wrap gap-3">
             <a href="<?= e(SPONSOR_LINK) ?>" target="_blank" rel="noopener sponsored"
                class="rewards-btn font-pop-exbd">CLAIM BONUSES</a>
-            <a href="leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">LEADERBOARD</a>
+            <a href="/leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">LEADERBOARD</a>
         </div>
     </div>
 </section>
@@ -104,7 +104,7 @@ require __DIR__ . '/includes/header.php';
                 <i class="fa-solid fa-trophy"></i>
                 <h3>Board's still empty</h3>
                 <p>First wager under the code takes the lead.</p>
-                <a href="leaderboard" class="rewards-btn font-pop-exbd">SEE THE LEADERBOARD</a>
+                <a href="/leaderboard" class="rewards-btn font-pop-exbd">SEE THE LEADERBOARD</a>
             </div>
         <?php else: ?>
             <div class="gm-table-wrap" data-reveal>
@@ -130,10 +130,10 @@ require __DIR__ . '/includes/header.php';
                 </table>
             </div>
             <div class="text-center mt-4" data-reveal>
-                <a href="leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">FULL LEADERBOARD</a>
+                <a href="/leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">FULL LEADERBOARD</a>
             </div>
         <?php endif; ?>
     </div>
 </section>
 
-<?php require __DIR__ . '/includes/footer.php'; ?>
+<?php require __DIR__ . '/../includes/footer.php'; ?>

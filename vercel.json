@@ -1,25 +1,22 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "api/getGambaLeaderboard.php": { "runtime": "vercel-php@0.7.3" },
-    "*.php": { "runtime": "vercel-php@0.7.3" }
+    "api/*.php": {
+      "runtime": "vercel-php@0.9.0",
+      "maxDuration": 15,
+      "excludeFiles": "{images,fonts,css,js,songs,node_modules,.git}/**"
+    }
   },
-  "rewrites": [
-    { "source": "/", "destination": "/index.php" },
-    { "source": "/duelbits", "destination": "/duelbits.php" },
-    { "source": "/gamba", "destination": "/gamba.php" },
-    { "source": "/leaderboard", "destination": "/leaderboard.php" },
-    { "source": "/giveaways", "destination": "/giveaways.php" },
-    { "source": "/rewards", "destination": "/rewards.php" }
-  ],
   "redirects": [
-    { "source": "/videos", "destination": "/", "permanent": true },
-    { "source": "/stream", "destination": "/", "permanent": true },
-    { "source": "/index", "destination": "/", "permanent": true }
+    { "source": "/includes/:path*", "destination": "/", "permanent": false },
+    { "source": "/pages/:path*", "destination": "/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/:path*", "destination": "/api/index?__route=:path*" }
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
@@ -27,9 +24,9 @@
       ]
     },
     {
-      "source": "/(images|css|js|fonts)/(.*)",
+      "source": "/(images|fonts)/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
     }
   ]

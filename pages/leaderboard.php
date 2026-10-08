@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/api/gamba.php';
+require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/gamba.php';
 
 $race = gamba_race();
 
@@ -16,7 +16,7 @@ $PAGE_DESC   = 'Wager on ' . SPONSOR_NAME . ' with code ' . $race['code'] . ' an
 $BODY_CLASS  = 'leaderboard';
 $ACTIVE      = 'leaderboard';
 
-require __DIR__ . '/includes/header.php';
+require __DIR__ . '/../includes/header.php';
 ?>
 
 <section class="gm-lb-hero">
@@ -219,4 +219,4 @@ Can't reach <?= e(SPONSOR_NAME) ?> — showing the last standings we received.
     </div>
 </section>
 
-<?php require __DIR__ . '/includes/footer.php'; ?>
+<?php require __DIR__ . '/../includes/footer.php'; ?>

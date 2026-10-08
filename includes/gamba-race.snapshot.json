@@ -1,0 +1,58 @@
+{
+    "fetched_at": 1791458769,
+    "stale": false,
+    "found": true,
+    "id": 22969,
+    "name": "RiiSki Return",
+    "pool": 1000,
+    "currency": "USDT",
+    "start_date": "2026-10-02 00:00:00",
+    "end_date": "2026-10-31 23:59:59",
+    "ends_at": 1793491199,
+    "code": "RiiSki",
+    "prizes": {
+        "1": 500,
+        "2": 250,
+        "3": 100,
+        "4": 50,
+        "5": 30,
+        "6": 20,
+        "7": 20,
+        "8": 15,
+        "9": 10,
+        "10": 5
+    },
+    "competitors": [],
+    "multipliers": {
+        "INHOUSE": 100,
+        "CASINO": 100,
+        "SPORTS": 100,
+        "__typename": "WagerContributionMultipliers"
+    },
+    "rtp": [
+        {
+            "range": [
+                0,
+                2
+            ],
+            "contribution": 10,
+            "__typename": "RtpContributionRange"
+        },
+        {
+            "range": [
+                2.01,
+                3
+            ],
+            "contribution": 50,
+            "__typename": "RtpContributionRange"
+        },
+        {
+            "range": [
+                3.01,
+                100
+            ],
+            "contribution": 100,
+            "__typename": "RtpContributionRange"
+        }
+    ]
+}

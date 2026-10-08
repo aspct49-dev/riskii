@@ -1,10 +1,12 @@
 # The admin dashboard needs MySQL and a writable uploads directory, neither of
-# which exists on Vercel. Content now lives in includes/content.php, so the
-# dashboard is not deployed — it stays in the repo for reference only.
+# which exists on Vercel, and its PHP holds the production database
+# credentials. Content lives in includes/content.php instead.
 dashboard/
 
 # Apache-only; Vercel routes come from vercel.json.
 .htaccess
+includes/.htaccess
+pages/.htaccess
 
 # Local dev server shim for `php -S`; never used in a deployment.
 router.php

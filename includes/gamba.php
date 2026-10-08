@@ -8,7 +8,7 @@
  * browser to the server or hand-copying standings into the database.
  */
 
-require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/config.php';
 
 /** The document Gamba's own client sends, used when the persisted hash misses. */
 const GAMBA_RACE_QUERY = <<<'GQL'
@@ -36,8 +36,10 @@ function gamba_http(string $url, ?string $postBody = null): ?array
     $ch = curl_init($url);
     curl_setopt_array($ch, [
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 12,
-        CURLOPT_CONNECTTIMEOUT => 6,
+        // Two attempts (persisted query, then full query) must both fit
+        // inside the 15s function limit set in vercel.json.
+        CURLOPT_TIMEOUT        => 6,
+        CURLOPT_CONNECTTIMEOUT => 4,
         CURLOPT_FOLLOWLOCATION => true,
         // The gateway is behind Cloudflare and answers browser-shaped requests.
         CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -100,9 +102,13 @@ function gamba_fetch_race(int $raceId): ?array
  * The race as the site renders it: cached, normalised, and with the prize table
  * already married to the standings.
  *
- * Never throws and never blocks the page on a slow gateway — if Gamba is down
- * the last good copy is served and `stale` is set, and if there has never been
- * a good copy the caller gets `competitors => []` and shows the empty state.
+ * Never throws. If Gamba can't be reached, falls back in order to:
+ *   1. this instance's last good copy (temp-dir cache);
+ *   2. the snapshot committed with the site (includes/gamba-race.snapshot.json),
+ *      so a cold serverless instance that can't reach Gamba still shows the
+ *      real pool, prizes and dates rather than a $0 race;
+ *   3. an empty race.
+ * Anything other than a live answer is marked `stale`, and the page says so.
  */
 function gamba_race(bool $force = false): array
 {
@@ -121,10 +127,14 @@ function gamba_race(bool $force = false): array
     $race = gamba_fetch_race(GAMBA_RACE_ID);
 
     if ($race === null) {
-        // Serve the last good copy rather than an empty board.
         if (is_array($cached)) {
             $cached['stale'] = true;
             return $cached;
+        }
+        $snapshot = json_decode((string) @file_get_contents(GAMBA_SNAPSHOT_FILE), true);
+        if (is_array($snapshot) && !empty($snapshot['found'])) {
+            $snapshot['stale'] = true;
+            return $snapshot;
         }
         return gamba_normalise(null);
     }
@@ -136,6 +146,23 @@ function gamba_race(bool $force = false): array
     @file_put_contents($cacheFile, json_encode($data), LOCK_EX);
 
     return $data;
+}
+
+/** Writes the committed fallback from a live fetch. Run by hand, never per request. */
+function gamba_write_snapshot(): bool
+{
+    $race = gamba_fetch_race(GAMBA_RACE_ID);
+    if ($race === null) {
+        fwrite(STDERR, "Gamba unreachable; snapshot not written.
+");
+        return false;
+    }
+    $data = gamba_normalise($race);
+    file_put_contents(GAMBA_SNAPSHOT_FILE, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "
+");
+    echo 'Snapshot written: ', $data['name'], ', ', money($data['pool'], 0), ', ', count($data['competitors']), " competitors
+";
+    return true;
 }
 
 /** Flattens Gamba's payload into the handful of fields the templates use. */

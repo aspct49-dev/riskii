@@ -1,6 +1,11 @@
+# Apache equivalent of vercel.json, in case the site is ever hosted on a
+# traditional server again. Real files are served as-is; everything else goes
+# to the front controller. includes/ and pages/ deny direct access themselves.
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.php -f
-  RewriteRule ^(.+)$ $1.php [L]
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{REQUEST_URI} !\.php$
+  RewriteRule ^ - [L]
+  RewriteRule ^api/getGambaLeaderboard(\.php)?$ api/getGambaLeaderboard.php [L,QSA]
+  RewriteRule ^ api/index.php [L,QSA]
 </IfModule>

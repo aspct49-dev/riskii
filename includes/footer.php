@@ -3,8 +3,8 @@
         <div class="row align-items-center gy-4">
             <div class="col-lg-3">
                 <div class="footer-left d-flex flex-column">
-                    <a href="index">
-                        <img src="images/footer-logo.png" alt="<?= e(SITE_NAME) ?>" class="img-fluid">
+                    <a href="/">
+                        <img src="/images/footer-logo.png" alt="<?= e(SITE_NAME) ?>" class="img-fluid">
                     </a>
                     <p class="mb-0 font-pop-bld">&copy; <?= date('Y') ?> <?= e(SITE_NAME) ?></p>
                 </div>
@@ -42,9 +42,9 @@
 
 <!-- jQuery and Bootstrap's JS used to load here (~165 KB, render-blocking).
      Nothing on the site calls either any more. -->
-<script src="js/custom.js" defer></script>
-<script src="js/gamba.js" defer></script>
-<script src="js/reveal.js" defer></script>
+<script src="/js/custom.js" defer></script>
+<script src="/js/gamba.js" defer></script>
+<script src="/js/reveal.js" defer></script>
 
 </body>
 </html>

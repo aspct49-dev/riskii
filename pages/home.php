@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/api/gamba.php';
+require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/gamba.php';
 
 $race = gamba_race();
 $top  = array_slice($race['competitors'], 0, 3);
@@ -11,19 +11,19 @@ $PAGE_DESC  = 'Play on ' . SPONSOR_NAME . ' with code ' . SPONSOR_CODE . ' for i
 $BODY_CLASS = 'home';
 $ACTIVE     = 'index';
 
-require __DIR__ . '/includes/header.php';
+require __DIR__ . '/../includes/header.php';
 ?>
 
 <section class="banner">
     <div class="container">
         <video autoplay loop muted playsinline class="banner-video">
-            <source src="images/bg.webm" type="video/webm">
+            <source src="/images/bg.webm" type="video/webm">
         </video>
 
         <div class="col-lg-9 mx-lg-auto">
             <div class="banner-content d-flex flex-column align-items-center" data-reveal-stagger>
                 <div class="text-center mb-3">
-                    <img src="images/logo.png" alt="<?= e(SITE_NAME) ?>" class="img-fluid hero-logo">
+                    <img src="/images/logo.png" alt="<?= e(SITE_NAME) ?>" class="img-fluid hero-logo">
                 </div>
 
                 <h1 class="mb-0 font-litp-blk text-center text-white">
@@ -38,7 +38,7 @@ require __DIR__ . '/includes/header.php';
                 <div class="banner-content d-flex justify-content-center align-items-center flex-wrap gap-3 mt-4">
                     <a href="<?= e(SPONSOR_LINK) ?>" target="_blank" rel="noopener sponsored"
                        class="rewards-btn font-pop-exbd">CLAIM BONUS</a>
-                    <a href="leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">LEADERBOARD</a>
+                    <a href="/leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">LEADERBOARD</a>
                 </div>
 
             </div>
@@ -110,7 +110,7 @@ require __DIR__ . '/includes/header.php';
                     <?php endforeach; ?>
                 </div>
                 <div class="text-center">
-                    <a href="leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">FULL LEADERBOARD</a>
+                    <a href="/leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">FULL LEADERBOARD</a>
                 </div>
             <?php endif; ?>
         </div>
@@ -161,11 +161,11 @@ require __DIR__ . '/includes/header.php';
                 ?>
             </ul>
 
-            <div class="giveways-chip-1 position-absolute d-lg-block d-none"><img src="images/chip-1.png" alt="" class="img-fluid"></div>
-            <div class="giveways-chip-2 position-absolute d-lg-block d-none"><img src="images/chip-2.png" alt="" class="img-fluid"></div>
-            <div class="giveways-chip-3 position-absolute d-lg-block d-none"><img src="images/chip-3.png" alt="" class="img-fluid"></div>
+            <div class="giveways-chip-1 position-absolute d-lg-block d-none"><img src="/images/chip-1.png" alt="" class="img-fluid"></div>
+            <div class="giveways-chip-2 position-absolute d-lg-block d-none"><img src="/images/chip-2.png" alt="" class="img-fluid"></div>
+            <div class="giveways-chip-3 position-absolute d-lg-block d-none"><img src="/images/chip-3.png" alt="" class="img-fluid"></div>
         </div>
     </div>
 </section>
 
-<?php require __DIR__ . '/includes/footer.php'; ?>
+<?php require __DIR__ . '/../includes/footer.php'; ?>

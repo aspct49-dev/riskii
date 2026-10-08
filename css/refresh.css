@@ -188,8 +188,6 @@ body {
     view-transition-name: nav-indicator;
 }
 
-.claim-rewards-btn.is-current { box-shadow: 0 0 0 2px rgba(46, 243, 150, .35); }
-
 /* --- Hamburger ---------------------------------------------------------------- */
 .nav-toggle {
     display: none;
@@ -850,81 +848,6 @@ body {
 .our-offers-list-item .bg-text { margin-bottom: 18px !important; }
 .our-offers-list-item .claim-btn { margin-top: auto; }
 .our-offers-list-item .info-text { margin-top: 12px; }
-
-/* =============================================================================
-   Reward tiers
-   Replaces css/rewards.css, which styled a card that no longer exists. The
-   tiers climb in weight so the ladder reads at a glance.
-   ========================================================================== */
-.gm-tiers {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    max-width: 1040px;
-    margin: 0 auto 36px;
-}
-
-.gm-tier {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    padding: 28px 16px;
-    text-align: center;
-    background: var(--gm-hull);
-    border: 1px solid var(--gm-edge);
-    border-radius: 16px;
-    transition: border-color .18s ease, transform .18s ease;
-}
-.gm-tier:hover { border-color: rgba(46, 243, 150, .4); transform: translateY(-3px); }
-
-.gm-tier-name {
-    font-size: 12px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--gm-dim);
-    font-weight: 700;
-}
-.gm-tier-bonus { font-size: 30px; font-weight: 700; color: #fff; line-height: 1.1; }
-.gm-tier-wager { font-size: 13px; color: var(--gm-muted); }
-.gm-tier-wager strong { color: var(--gm-text); font-weight: 600; }
-
-/* The ladder brightens as it climbs — the top tier is the one worth reaching. */
-.gm-tier-4 { border-color: rgba(46, 243, 150, .26); }
-.gm-tier-5 {
-    border-color: rgba(46, 243, 150, .5);
-    box-shadow: var(--gm-glow);
-}
-.gm-tier-5 .gm-tier-bonus {
-    background: var(--gm-grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.gm-claim {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 24px 28px;
-    background: var(--gm-hull);
-    border: 1px solid var(--gm-edge);
-    border-radius: 16px;
-}
-.gm-claim > i { font-size: 32px; color: var(--gm-green); flex: none; }
-.gm-claim h3 { font-size: 17px; color: #fff; margin: 0 0 4px; }
-.gm-claim p { margin: 0; color: var(--gm-muted); font-size: 14px; }
-.gm-claim .rewards-btn { flex: none; }
-
-@media (max-width: 991px) {
-    .gm-tiers { grid-template-columns: repeat(2, 1fr); }
-    .gm-claim { flex-direction: column; text-align: center; gap: 16px; }
-}
-@media (max-width: 420px) {
-    .gm-tiers { grid-template-columns: 1fr; }
-}
 
 /* --- Sticky footer -----------------------------------------------------------
    Short pages (Giveaways' Coming Soon, an ended leaderboard) left the footer

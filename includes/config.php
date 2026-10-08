@@ -11,7 +11,7 @@
 define('SPONSOR_NAME',  'Gamba');
 define('SPONSOR_CODE',  'RiiSki');
 define('SPONSOR_LINK',  'https://gamba.com/?c=RiiSki');
-define('SPONSOR_LOGO',  'images/gamba-logo-light.png');
+define('SPONSOR_LOGO',  '/images/gamba-logo-light.png');
 
 // --- The leaderboard we mirror -----------------------------------------------
 // Gamba hosts the race; we render its standings. The id is the one in the URL
@@ -33,6 +33,11 @@ define('GAMBA_QUERY_HASH', 'fce626ac48edaaf1714f52415711e5dae485413957763c994722
 // miss just means one more call to Gamba.
 define('GAMBA_CACHE_FILE', sys_get_temp_dir() . '/rogue-gamba-race.json');
 define('GAMBA_CACHE_TTL',  120); // seconds
+
+// Last-resort copy of the race, committed with the site. Refresh it with
+//   php -r "require 'includes/gamba.php'; gamba_write_snapshot();"
+// whenever the race changes (new id, new pool, new dates).
+define('GAMBA_SNAPSHOT_FILE', __DIR__ . '/gamba-race.snapshot.json');
 
 // --- Site --------------------------------------------------------------------
 define('SITE_NAME',    'RogueRewards');

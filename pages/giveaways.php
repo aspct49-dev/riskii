@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/../includes/config.php';
 
 $PAGE_TITLE = 'Giveaways — ' . SITE_NAME;
 $PAGE_DESC  = 'Giveaways are coming back to ' . SITE_NAME . '. Join the Discord to hear first.';
 $BODY_CLASS = 'giveways';
 $ACTIVE     = 'giveaways';
 
-require __DIR__ . '/includes/header.php';
+require __DIR__ . '/../includes/header.php';
 ?>
 
 <section class="gm-lb-hero">
@@ -24,9 +24,9 @@ require __DIR__ . '/includes/header.php';
                class="rewards-btn font-pop-exbd">
                 <i class="fa-brands fa-discord me-2"></i>JOIN THE DISCORD
             </a>
-            <a href="leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">LEADERBOARD</a>
+            <a href="/leaderboard" class="rewards-btn rewards-btn-1 font-pop-exbd">LEADERBOARD</a>
         </div>
     </div>
 </section>
 
-<?php require __DIR__ . '/includes/footer.php'; ?>
+<?php require __DIR__ . '/../includes/footer.php'; ?>
