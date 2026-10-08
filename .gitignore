@@ -1,0 +1,22 @@
+# This repository is public. Nothing that holds a credential goes in it.
+
+# Admin dashboard: needs MySQL, is not deployed (see .vercelignore), and its
+# PHP files contain the production database credentials.
+dashboard/
+
+# Stale copy of the pre-Gamba site — same credentials problem.
+xtest/
+
+# Local-only overrides, should one ever be recreated.
+includes/config.local.php
+.env
+.env.*
+
+# Vercel CLI link state
+.vercel/
+
+# Noise
+*.log
+Thumbs.db
+desktop.ini
+.DS_Store

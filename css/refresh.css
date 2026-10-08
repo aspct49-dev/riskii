@@ -1,0 +1,1021 @@
+/* =============================================================================
+   RogueRewards x Gamba — rebrand layer
+   -----------------------------------------------------------------------------
+   Loaded after style.css and responsive.css. Those two are mostly token-driven,
+   so retinting :root here recolours the whole site in one place instead of
+   editing 1,500 lines by hand.
+
+   Greens, grounds and surfaces are Gamba's own published tokens, so the
+   co-brand reads as one thing rather than two sites stapled together.
+   ========================================================================== */
+
+:root {
+    /* --- Gamba brand ------------------------------------------------------ */
+    --gm-green: #2EF396;
+    --gm-green-lt: #63FAB3;
+    --gm-green-dk: #39DB8F;
+    --gm-green-deep: #00AF96;
+    --gm-grad: linear-gradient(135deg, #63FAB3 0%, #39DB8F 100%);
+
+    /* --- Grounds ---------------------------------------------------------- */
+    --gm-void: #0B0E14;
+    --gm-hull: #11141D;
+    --gm-hull-2: #171B26;
+    --gm-raise: #1E2430;
+    --gm-edge: #262D3C;
+    --gm-edge-lit: #374155;
+
+    /* --- Text ------------------------------------------------------------- */
+    --gm-text: #EAF1F6;
+    --gm-muted: #96A2B5;
+    --gm-dim: #6E7A8D;
+
+    /* --- Podium: green / steel / deep-teal. Deliberately not gold-silver-
+           bronze, which every other site in this category already uses. ----- */
+    --gm-rank-1: #2EF396;
+    --gm-rank-2: #A8B6C9;
+    --gm-rank-3: #00AF96;
+
+    /* --- Retint the legacy tokens style.css already references ------------ */
+    --bg-col-1: #0B0E14;
+    --bg-col-2: #11141D;
+    --bg-col-3: #171B26;
+    --text-col-1: #96A2B5;
+    --text-col-2: #2EF396;
+    --text-col-3: #0B0E14;
+    --text-col-4: #171B26;
+    --text-col-5: #63FAB3;
+
+    --gm-shadow: 0 18px 44px rgba(0, 0, 0, .55);
+    --gm-glow: 0 0 0 1px rgba(46, 243, 150, .22), 0 14px 40px rgba(46, 243, 150, .14);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--gm-void);
+    color: var(--gm-text);
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(46, 243, 150, .28); color: #fff; }
+
+/* Numbers get a tabular face so columns of money line up instead of wobbling. */
+.gm-num, .gm-wager, .gm-prize, .gm-pool-value, .gm-cd-value {
+    font-family: 'Space Grotesk', 'Poppins', sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+}
+
+/* --- Legacy green swaps ---------------------------------------------------- */
+.green-col, .gold-col { color: var(--gm-green); }
+
+.claim-rewards-btn {
+    background: var(--gm-grad);
+    border-color: transparent;
+    color: #06240F;
+    font-weight: 700;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.claim-rewards-btn:hover {
+    color: #06240F;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(46, 243, 150, .3);
+}
+
+.rewards-btn {
+    background: var(--gm-grad);
+    border: none;
+    color: #06240F !important;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.rewards-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(46, 243, 150, .32); }
+
+.rewards-btn-1 {
+    background: transparent;
+    border: 1px solid var(--gm-edge-lit);
+    color: var(--gm-text) !important;
+}
+.rewards-btn-1:hover { border-color: var(--gm-green); box-shadow: none; }
+
+.claim-btn { background: var(--gm-grad); color: #06240F; }
+
+/* --- Header ----------------------------------------------------------------
+   Nothing in here may change size after first paint. The bar used to place
+   the nav with justify-content: space-between, so any width change in the
+   logo or the button moved the nav — and the logo did change, by 149px, when
+   its video replaced its poster. The nav slid 74px on every page load. Now:
+     - the logo box is locked to the video's aspect ratio before it loads;
+     - on desktop the bar is a 1fr | auto | 1fr grid, so the nav is centred on
+       the page by construction and no sibling can push it. */
+.site-header {
+    background: rgba(11, 14, 20, .78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--gm-edge);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 18px 0;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+@media (min-width: 992px) {
+    .header-bar {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+    }
+    .header-bar .menu-left { justify-self: start; }
+    .header-bar .menu-right { justify-self: center; }
+    .header-bar .claim-rewards-btn { justify-self: end; margin-left: 0; }
+}
+
+/* style.css caps .logo-container at 300px with overflow:hidden. */
+.site-header .logo-container {
+    max-width: none;
+    width: auto;
+    overflow: visible;
+}
+.site-header .logo-video {
+    display: block;
+    height: 52px;
+    width: auto;
+    aspect-ratio: 1018 / 158;   /* the video's frame — matches the width/height attributes */
+    max-width: 100%;
+    object-fit: contain;        /* the poster is a different shape; it letterboxes, it does not resize the box */
+    object-position: left center;
+}
+
+/* Out-specifies style.css's `.header .menu-right .menu-list ul li a`, whose
+   `transition: all linear .2s` was animating every property on hover. */
+.site-header .menu-right .menu-list ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.site-header .menu-right .menu-list ul li { margin: 0; }
+.site-header .menu-right .menu-list ul li a {
+    position: relative;
+    display: inline-block;
+    padding: 6px 0;
+    color: var(--gm-muted);
+    font-weight: 800;
+    transition: color .2s ease;
+}
+.site-header .menu-right .menu-list ul li a:hover,
+.site-header .menu-right .menu-list ul li a.active { color: var(--gm-text); }
+.site-header .menu-right .menu-list ul li a.nav-sponsor { color: var(--gm-green); }
+.site-header .menu-right .menu-list ul li a:focus-visible {
+    outline: 2px solid var(--gm-green);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* The current-page bar. A real element rather than ::after, so it can carry a
+   view-transition-name and glide between links across page loads. */
+.nav-indicator {
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--gm-grad);
+    view-transition-name: nav-indicator;
+}
+
+.claim-rewards-btn.is-current { box-shadow: 0 0 0 2px rgba(46, 243, 150, .35); }
+
+/* --- Hamburger ---------------------------------------------------------------- */
+.nav-toggle {
+    display: none;
+    position: relative;
+    width: 42px; height: 42px;
+    padding: 0;
+    border: 1px solid var(--gm-edge);
+    border-radius: 10px;
+    background: var(--gm-hull-2);
+    cursor: pointer;
+    flex: none;
+}
+.nav-toggle span {
+    position: absolute;
+    left: 11px; right: 11px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--gm-text);
+    transition: transform .3s cubic-bezier(.2, .7, .2, 1), opacity .2s ease;
+}
+.nav-toggle span:nth-child(1) { top: 13px; }
+.nav-toggle span:nth-child(2) { top: 19px; }
+.nav-toggle span:nth-child(3) { top: 25px; }
+/* Three bars fold into an X. */
+.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.nav-toggle:focus-visible { outline: 2px solid var(--gm-green); outline-offset: 3px; }
+
+/* --- Mobile menu -------------------------------------------------------------
+   Replaces responsive.css's version, which animated `top` (a layout property,
+   so it juddered) on a linear curve, and style.css's, which set the list to
+   display:none on phones so it could never open at all. This one is a panel
+   that drops in on transform and opacity only. */
+@media (max-width: 991px) {
+    .nav-toggle { display: block; }
+    .header-bar .claim-rewards-btn { margin-left: auto; }
+
+    .site-header .menu-right .menu-list {
+        display: block !important;
+        position: absolute;
+        top: calc(100% + 8px) !important;
+        left: 12px; right: 12px;
+        width: auto;
+        margin: 0;
+        padding: 10px;
+        transform: translateY(-10px) scale(.98);
+        transform-origin: top center;
+        background: var(--gm-hull);
+        border: 1px solid var(--gm-edge);
+        border-radius: 16px;
+        box-shadow: var(--gm-shadow);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        /* visibility waits for the fade-out to finish before hiding */
+        transition: opacity .2s ease, transform .3s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .3s;
+    }
+    .nav-open .menu-right .menu-list {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        transform: none;
+        transition: opacity .2s ease, transform .3s cubic-bezier(.2, .7, .2, 1), visibility 0s;
+    }
+
+    .site-header .menu-right .menu-list ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+    }
+    /* responsive.css boxes each <li> in its own purple tile with padding and
+       a 40px line-height; the link is the row now, so the li is bare. */
+    .site-header .menu-right .menu-list ul li {
+        padding: 0;
+        margin: 0;
+        line-height: 1.4;
+        border: 0;
+        border-radius: 0;
+        background: none;
+    }
+    .site-header .menu-right .menu-list ul li a {
+        display: block;
+        padding: 13px 14px;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+    .site-header .menu-right .menu-list ul li a:hover,
+    .site-header .menu-right .menu-list ul li a.active { background: var(--gm-raise); }
+    /* In a vertical list the row highlight marks the page; the bar is redundant. */
+    .nav-indicator { display: none; }
+}
+
+@media (max-width: 575px) {
+    .site-header .logo-video { height: 34px; }
+    .header-bar .claim-rewards-btn { padding: 0 16px; height: 40px; font-size: 13px; }
+}
+
+/* --- Page transitions -------------------------------------------------------
+   Cross-document view transitions: moving between pages cross-fades the
+   content while the header holds still, and the current-page bar slides to
+   its new link. Chrome/Edge 126+ and Safari 18.2+; everywhere else this is
+   ignored and navigation is ordinary. */
+@view-transition { navigation: auto; }
+
+.site-header { view-transition-name: site-header; }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: .24s;
+    animation-timing-function: ease;
+}
+::view-transition-group(nav-indicator) {
+    animation-duration: .38s;
+    animation-timing-function: cubic-bezier(.2, .7, .2, 1);
+}
+/* The header is identical on both sides; snap to the new one rather than
+   cross-fading two near-identical images. The bar is what moves. */
+::view-transition-old(site-header) { display: none; }
+::view-transition-new(site-header) { animation: none; }
+
+/* --- Section furniture ----------------------------------------------------- */
+.gm-section { padding: 88px 0; position: relative; }
+.gm-section-head { text-align: center; margin-bottom: 44px; }
+.gm-section-head h2 {
+    font-size: clamp(30px, 4.2vw, 46px);
+    color: #fff;
+    letter-spacing: .5px;
+    margin-bottom: 10px;
+}
+.gm-section-head p { color: var(--gm-muted); margin: 0; }
+
+.gm-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gm-green);
+    background: rgba(46, 243, 150, .09);
+    border: 1px solid rgba(46, 243, 150, .26);
+    border-radius: 999px;
+    padding: 7px 16px;
+    margin-bottom: 18px;
+}
+
+.gm-card {
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 16px;
+    box-shadow: var(--gm-shadow);
+}
+
+/* =============================================================================
+   Leaderboard
+   -----------------------------------------------------------------------------
+   Drawn entirely in CSS — plates, blooms, rank haze and all. No banner image
+   anywhere in it, which is what keeps the prize figures and the names live
+   text: the board restyles itself when the standings move, stays legible at
+   any width, and a screen reader can read it.
+   ========================================================================== */
+
+.gm-lb-hero {
+    position: relative;
+    padding: 150px 0 60px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Two blooms behind the hero, in the brand's two greens. */
+.gm-lb-hero::before,
+.gm-lb-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+}
+.gm-lb-hero::before {
+    width: 560px; height: 560px;
+    top: -220px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(46, 243, 150, .16);
+}
+.gm-lb-hero::after {
+    width: 420px; height: 420px;
+    bottom: -260px; right: -120px;
+    background: rgba(0, 175, 150, .13);
+}
+.gm-lb-hero > .container { position: relative; z-index: 1; }
+
+.gm-lb-title {
+    font-size: clamp(34px, 6vw, 62px);
+    font-weight: 900;
+    line-height: 1.04;
+    color: #fff;
+    margin: 0 0 14px;
+}
+.gm-lb-title span {
+    background: var(--gm-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gm-lb-sub { color: var(--gm-muted); max-width: 620px; margin: 0 auto 30px; }
+
+/* Block-level, not inline-flex: as an inline box it shared a line with the
+   eyebrow pill above it and the two overlapped. */
+.gm-lb-sponsor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    color: var(--gm-dim);
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.gm-lb-sponsor img { height: 30px; width: auto; }
+
+/* --- Prize pool + countdown ------------------------------------------------ */
+.gm-pool {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 22px 46px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(46, 243, 150, .1), rgba(46, 243, 150, .02));
+    border: 1px solid rgba(46, 243, 150, .3);
+    box-shadow: var(--gm-glow);
+    margin-bottom: 30px;
+}
+.gm-pool-label {
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gm-green); font-weight: 700;
+}
+.gm-pool-value {
+    font-size: clamp(38px, 7vw, 60px);
+    font-weight: 700; line-height: 1; color: #fff;
+}
+.gm-pool-cur { font-size: 13px; color: var(--gm-dim); letter-spacing: .1em; }
+
+.gm-countdown {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 8px;
+}
+.gm-cd-cell {
+    min-width: 82px; padding: 12px 10px;
+    background: var(--gm-hull-2);
+    border: 1px solid var(--gm-edge);
+    border-radius: 12px;
+}
+.gm-cd-value { display: block; font-size: 28px; font-weight: 700; color: #fff; line-height: 1.1; }
+.gm-cd-label {
+    display: block; font-size: 10px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--gm-dim); margin-top: 3px;
+}
+.gm-cd-note { color: var(--gm-dim); font-size: 13px; margin-top: 14px; }
+
+/* --- Podium ---------------------------------------------------------------- */
+.gm-podium {
+    display: grid;
+    grid-template-columns: 1fr 1.16fr 1fr;
+    align-items: end;
+    gap: 18px;
+    max-width: 920px;
+    margin: 0 auto 56px;
+}
+
+.gm-pod {
+    position: relative;
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 18px;
+    padding: 46px 18px 20px;
+    text-align: center;
+    box-shadow: var(--gm-shadow);
+}
+
+/* The haze behind each plate is the rank colour, so the podium reads at a
+   glance even before the numbers are legible. */
+.gm-pod::before {
+    content: "";
+    position: absolute;
+    inset: auto 16% 72%;
+    height: 92px;
+    border-radius: 50%;
+    filter: blur(44px);
+    opacity: .5;
+    pointer-events: none;
+}
+.gm-pod-1 { border-color: rgba(46, 243, 150, .42); padding-top: 56px; }
+.gm-pod-1::before { background: var(--gm-rank-1); }
+.gm-pod-2::before { background: var(--gm-rank-2); }
+.gm-pod-3::before { background: var(--gm-rank-3); }
+
+.gm-pod-rank {
+    position: absolute;
+    top: -16px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    border-radius: 12px;
+    font-weight: 800; font-size: 16px;
+    color: #06240F;
+    background: var(--gm-rank-2);
+    border: 3px solid var(--gm-void);
+}
+.gm-pod-1 .gm-pod-rank { background: var(--gm-rank-1); width: 46px; height: 46px; font-size: 18px; top: -19px; }
+.gm-pod-3 .gm-pod-rank { background: var(--gm-rank-3); color: #02170F; }
+
+.gm-pod-crown {
+    position: absolute; top: -46px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px; color: var(--gm-rank-1);
+    filter: drop-shadow(0 0 12px rgba(46, 243, 150, .6));
+}
+
+.gm-pod-name {
+    font-weight: 700; font-size: 17px; color: #fff;
+    margin: 0 0 4px;
+    overflow-wrap: anywhere;
+}
+.gm-pod-wager { font-size: 13px; color: var(--gm-muted); margin: 0 0 14px; }
+.gm-pod-wager strong { color: var(--gm-text); font-weight: 600; }
+
+/* The prize bar tucks behind the card's lower edge, so the plate reads as one
+   object with a value attached rather than two stacked boxes. */
+.gm-pod-prize {
+    display: block;
+    margin: 0 -18px -20px;
+    padding: 13px 10px;
+    border-radius: 0 0 17px 17px;
+    font-weight: 700; font-size: 19px;
+    color: #06240F;
+    background: var(--gm-rank-2);
+}
+.gm-pod-1 .gm-pod-prize { background: var(--gm-grad); font-size: 22px; }
+.gm-pod-3 .gm-pod-prize { background: var(--gm-rank-3); color: #02170F; }
+
+/* --- Standings table ------------------------------------------------------- */
+.gm-table-wrap {
+    max-width: 920px; margin: 0 auto;
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--gm-shadow);
+}
+.gm-table { width: 100%; border-collapse: collapse; }
+.gm-table thead th {
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gm-dim); font-weight: 700;
+    padding: 15px 20px;
+    background: var(--gm-hull-2);
+    border-bottom: 1px solid var(--gm-edge);
+    text-align: left;
+}
+.gm-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(38, 45, 60, .7);
+    color: var(--gm-text);
+    vertical-align: middle;
+}
+.gm-table tbody tr:last-child td { border-bottom: none; }
+.gm-table tbody tr { transition: background .14s ease; }
+.gm-table tbody tr:hover { background: rgba(46, 243, 150, .045); }
+
+.gm-table .gm-col-rank { width: 78px; }
+.gm-table .gm-col-wager,
+.gm-table .gm-col-prize { text-align: right; }
+
+.gm-rank-pill {
+    display: inline-grid; place-items: center;
+    min-width: 30px; height: 30px; padding: 0 8px;
+    border-radius: 9px;
+    background: var(--gm-raise);
+    border: 1px solid var(--gm-edge);
+    font-weight: 700; font-size: 13px;
+    color: var(--gm-muted);
+}
+.gm-name { font-weight: 600; overflow-wrap: anywhere; }
+.gm-wager { color: var(--gm-muted); }
+.gm-prize { color: var(--gm-green); font-weight: 700; }
+
+/* --- Empty / pending state -------------------------------------------------
+   The race is live but nobody has wagered yet, which is a real and common
+   state at the start of a month. It gets a designed panel rather than an
+   empty table, because an empty table reads as a broken page. ------------- */
+.gm-empty {
+    max-width: 920px; margin: 0 auto;
+    padding: 60px 30px; text-align: center;
+    background: var(--gm-hull);
+    border: 1px dashed var(--gm-edge-lit);
+    border-radius: 16px;
+}
+.gm-empty i { font-size: 38px; color: var(--gm-green); opacity: .8; margin-bottom: 18px; display: block; }
+.gm-empty h3 { font-size: 22px; color: #fff; margin-bottom: 10px; }
+.gm-empty p { color: var(--gm-muted); max-width: 460px; margin: 0 auto 24px; }
+
+.gm-stale {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; color: #F0B64A;
+    background: rgba(240, 182, 74, .1);
+    border: 1px solid rgba(240, 182, 74, .28);
+    border-radius: 999px; padding: 6px 14px; margin-bottom: 18px;
+}
+
+/* --- Promo code chip ------------------------------------------------------- */
+.gm-code {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--gm-hull-2);
+    border: 1px dashed rgba(46, 243, 150, .45);
+    border-radius: 12px;
+    padding: 12px 18px;
+    cursor: pointer;
+    transition: border-color .16s ease, background .16s ease;
+}
+.gm-code:hover { border-color: var(--gm-green); background: rgba(46, 243, 150, .06); }
+.gm-code-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gm-dim); }
+.gm-code-value {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 19px; font-weight: 700; color: var(--gm-green);
+    letter-spacing: .04em;
+}
+.gm-code i { color: var(--gm-dim); font-size: 14px; }
+
+/* --- Prize distribution + rules ------------------------------------------- */
+.gm-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 920px; margin: 0 auto; }
+.gm-panel { background: var(--gm-hull); border: 1px solid var(--gm-edge); border-radius: 16px; padding: 26px 28px; }
+.gm-panel h3 { font-size: 17px; color: #fff; margin-bottom: 18px; }
+
+.gm-prize-list { list-style: none; padding: 0; margin: 0; }
+.gm-prize-list li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(38, 45, 60, .6);
+    font-size: 14px;
+}
+.gm-prize-list li:last-child { border-bottom: none; }
+.gm-prize-list .pos { color: var(--gm-muted); }
+.gm-prize-list .amt { color: var(--gm-green); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.gm-rules { list-style: none; padding: 0; margin: 0; }
+.gm-rules li {
+    position: relative; padding: 0 0 13px 26px;
+    color: var(--gm-muted); font-size: 14px; line-height: 1.55;
+}
+.gm-rules li::before {
+    content: "\f058"; /* fa-circle-check */
+    font-family: "Font Awesome 6 Free"; font-weight: 900;
+    position: absolute; left: 0; top: 1px;
+    color: var(--gm-green); font-size: 13px;
+}
+
+/* --- Steps (sponsor page) --------------------------------------------------- */
+.gm-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1040px; margin: 0 auto; }
+.gm-step {
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 16px;
+    padding: 30px 26px;
+    position: relative;
+    transition: border-color .18s ease, transform .18s ease;
+}
+.gm-step:hover { border-color: rgba(46, 243, 150, .4); transform: translateY(-3px); }
+.gm-step-n {
+    width: 40px; height: 40px; display: grid; place-items: center;
+    border-radius: 12px;
+    background: rgba(46, 243, 150, .1);
+    border: 1px solid rgba(46, 243, 150, .3);
+    color: var(--gm-green); font-weight: 800;
+    margin-bottom: 18px;
+}
+.gm-step h3 { font-size: 18px; color: #fff; margin-bottom: 10px; }
+.gm-step p { color: var(--gm-muted); font-size: 14px; margin: 0; line-height: 1.6; }
+
+/* --- Footer ----------------------------------------------------------------- */
+.site-footer { background: var(--gm-hull); border-top: 1px solid var(--gm-edge); }
+.site-footer .footer-right ul li a {
+    color: var(--gm-muted);
+    transition: color .16s ease;
+}
+.site-footer .footer-right ul li a:hover { color: var(--gm-green); }
+.footer-sponsor {
+    margin-top: 28px; padding-top: 22px;
+    border-top: 1px solid var(--gm-edge);
+    color: var(--gm-dim); font-size: 12px;
+    letter-spacing: .12em; text-transform: uppercase;
+}
+.footer-sponsor img { opacity: .9; transition: opacity .16s ease; }
+.footer-sponsor a:hover img { opacity: 1; }
+
+/* --- Responsive ------------------------------------------------------------- */
+@media (max-width: 991px) {
+    .gm-split, .gm-steps { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+    .gm-section { padding: 60px 0; }
+    .gm-lb-hero { padding: 120px 0 40px; }
+
+    /* The podium stacks first, second, third — reading order beats the stepped
+       shape once there is no room for the step. */
+    .gm-podium { grid-template-columns: 1fr; gap: 30px; max-width: 360px; }
+    .gm-pod-1 { order: -1; }
+
+    .gm-pool { padding: 18px 28px; width: 100%; }
+    .gm-cd-cell { min-width: 68px; padding: 10px 8px; }
+    .gm-cd-value { font-size: 22px; }
+
+    .gm-table thead th, .gm-table td { padding: 12px 12px; font-size: 13px; }
+    .gm-table .gm-col-rank { width: 54px; }
+    /* Wager is the least load-bearing column on a phone: rank, name and prize
+       are what the page is for. */
+    .gm-table .gm-col-wager { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* --- Home hero --------------------------------------------------------------
+   style.css stacks a 120px margin on .banner and another 120px under the h1,
+   which left most of the first screen empty once the hero was rebuilt. The
+   section sets its own rhythm here instead. */
+.banner {
+    margin-top: 0;
+    /* Full viewport less the fixed header, so the hero is the whole first
+       screen rather than a small block floating in it. */
+    min-height: calc(100vh - 92px);
+    padding: 130px 0 60px;
+    display: flex;
+    align-items: center;
+}
+.home .banner h1 { margin-bottom: 0 !important; }
+
+/* .banner-content img is width:100% in style.css, which blew the wordmark up
+   to the full column. */
+/* Wordmark and headline scale with the viewport so the pair fills the hero on
+   a wide screen without overflowing a narrow one. */
+.banner-content .hero-logo {
+    width: auto;
+    max-width: min(640px, 84vw);
+    height: auto;
+}
+
+.home .banner h1 {
+    font-size: clamp(32px, 5.2vw, 76px) !important;
+    line-height: 1.08;
+    margin-bottom: 0 !important;
+}
+
+.hero-partner {
+    color: var(--gm-dim);
+    font-size: clamp(12px, 1vw, 14px);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+.hero-partner img { height: clamp(26px, 2.2vw, 36px); width: auto; }
+
+.scroll-cue {
+    margin-top: 42px;
+    color: var(--gm-dim);
+    font-size: 22px;
+    animation: gm-bob 2.2s ease-in-out infinite;
+    transition: color .16s ease;
+}
+.scroll-cue:hover { color: var(--gm-green); }
+
+@keyframes gm-bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(7px); }
+}
+
+/* --- Offer cards ------------------------------------------------------------ */
+.our-offers-list-item {
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 16px;
+    padding: 26px 22px;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.our-offers-list-item:hover {
+    border-color: rgba(46, 243, 150, .38);
+    transform: translateY(-4px);
+    box-shadow: var(--gm-shadow);
+}
+
+/* --- Counter ---------------------------------------------------------------- */
+.giveways-counter-item p,
+.giveways-counter-comma p,
+.giveways-counter-dollar p {
+    font-variant-numeric: tabular-nums;
+}
+.giveways-counter-dollar p { color: var(--gm-green); }
+
+@media (max-width: 767px) {
+    .banner { padding-top: 100px; }
+    .scroll-cue { margin-top: 28px; }
+}
+
+/* --- Giveaways -------------------------------------------------------------- */
+/* A single active giveaway used to hang against the left edge of the row. */
+.banner-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+}
+.banner-list-item {
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 16px;
+    padding: 24px;
+    min-width: 260px;
+    transition: border-color .18s ease, transform .18s ease;
+}
+.banner-list-item:hover { border-color: rgba(46, 243, 150, .38); transform: translateY(-3px); }
+.banner-list-item a { color: #06240F; }
+.no-giveaways { color: var(--gm-muted) !important; text-align: center; width: 100%; }
+
+/* --- Give-away counter tiles ------------------------------------------------
+   style.css fills these with --bg-col-1, which the rebrand retinted to the page
+   ground — so each tile went invisible and only its top border survived. They
+   get the raised surface here, matching the countdown cells. */
+.giveways-counter .giveways-counter-item,
+.home .giveways-counter .giveways-counter-item,
+.giveways .giveways-counter .giveways-counter-item {
+    background: var(--gm-hull-2);
+    border: 1px solid var(--gm-edge);
+    border-top: 2px solid rgba(46, 243, 150, .35);
+    border-radius: 10px;
+}
+.giveways-counter .giveways-counter-comma p { color: var(--gm-dim); }
+
+/* --- Offer card alignment ---------------------------------------------------
+   Partner logos arrive at whatever aspect the casino ships, so the name, bonus
+   and button landed at a different height in every card. A fixed media slot
+   plus an auto top-margin on the button makes the row line up regardless. */
+.our-offers-list-item {
+    display: flex;
+    flex-direction: column;
+}
+.our-offers-list-item img {
+    height: 64px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto 18px;
+}
+.our-offers-list-item .bg-text { margin-bottom: 18px !important; }
+.our-offers-list-item .claim-btn { margin-top: auto; }
+.our-offers-list-item .info-text { margin-top: 12px; }
+
+/* =============================================================================
+   Reward tiers
+   Replaces css/rewards.css, which styled a card that no longer exists. The
+   tiers climb in weight so the ladder reads at a glance.
+   ========================================================================== */
+.gm-tiers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    max-width: 1040px;
+    margin: 0 auto 36px;
+}
+
+.gm-tier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 28px 16px;
+    text-align: center;
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 16px;
+    transition: border-color .18s ease, transform .18s ease;
+}
+.gm-tier:hover { border-color: rgba(46, 243, 150, .4); transform: translateY(-3px); }
+
+.gm-tier-name {
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gm-dim);
+    font-weight: 700;
+}
+.gm-tier-bonus { font-size: 30px; font-weight: 700; color: #fff; line-height: 1.1; }
+.gm-tier-wager { font-size: 13px; color: var(--gm-muted); }
+.gm-tier-wager strong { color: var(--gm-text); font-weight: 600; }
+
+/* The ladder brightens as it climbs — the top tier is the one worth reaching. */
+.gm-tier-4 { border-color: rgba(46, 243, 150, .26); }
+.gm-tier-5 {
+    border-color: rgba(46, 243, 150, .5);
+    box-shadow: var(--gm-glow);
+}
+.gm-tier-5 .gm-tier-bonus {
+    background: var(--gm-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gm-claim {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 24px 28px;
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 16px;
+}
+.gm-claim > i { font-size: 32px; color: var(--gm-green); flex: none; }
+.gm-claim h3 { font-size: 17px; color: #fff; margin: 0 0 4px; }
+.gm-claim p { margin: 0; color: var(--gm-muted); font-size: 14px; }
+.gm-claim .rewards-btn { flex: none; }
+
+@media (max-width: 991px) {
+    .gm-tiers { grid-template-columns: repeat(2, 1fr); }
+    .gm-claim { flex-direction: column; text-align: center; gap: 16px; }
+}
+@media (max-width: 420px) {
+    .gm-tiers { grid-template-columns: 1fr; }
+}
+
+/* --- Sticky footer -----------------------------------------------------------
+   Short pages (Giveaways' Coming Soon, an ended leaderboard) left the footer
+   floating mid-screen with dead space under it. */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+body > .site-footer { margin-top: auto; }
+
+/* --- Countdown ----------------------------------------------------------------
+   Cells inherited text-align from their section; on the home page that is
+   left, so the digits sat against the cell's left edge. */
+.gm-countdown { justify-content: center; }
+.gm-cd-cell { text-align: center; }
+
+/* =============================================================================
+   Reveals
+   -----------------------------------------------------------------------------
+   Targets are marked in the templates (data-reveal, data-reveal-stagger) and
+   shown by js/reveal.js. Everything is scoped under .js-reveal, which the
+   page head only adds when JS is running and motion is allowed — so with JS
+   off, or reduced motion on, nothing is ever hidden.
+
+   Animations rather than transitions, with `backwards` fill:
+     - a transition override would replace the cards' own hover transitions,
+       so hovering would lag by the stagger delay;
+     - `both` fill would pin `transform: none` after the reveal ends, and the
+       cards could never lift on hover again.
+   With `backwards`, the start frame holds through the delay, and once the
+   animation ends the element is back on its own styles.
+   ========================================================================== */
+@keyframes gm-reveal {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+}
+@keyframes gm-reveal-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.js-reveal [data-reveal]:not(.is-in),
+.js-reveal [data-reveal-stagger]:not(.is-in) > * {
+    opacity: 0;
+}
+
+.js-reveal [data-reveal].is-in,
+.js-reveal [data-reveal-stagger].is-in > * {
+    animation: gm-reveal .75s cubic-bezier(.2, .7, .2, 1) backwards;
+    animation-delay: calc(var(--reveal-i, 0) * 75ms);
+}
+.js-reveal [data-reveal="fade"].is-in { animation-name: gm-reveal-fade; }
+
+/* The scroll cue bobs forever; its bob lives on the icon so the reveal (on
+   the link) cannot replace it. */
+.scroll-cue { animation: none; }
+.scroll-cue i { display: inline-block; animation: gm-bob 2.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+    @view-transition { navigation: none; }
+    .scroll-cue i { animation: none; }
+}
+
+/* Sponsor logo heights. The width/height attributes give the aspect ratio;
+   these give the size. */
+.footer-sponsor img { height: 26px; width: auto; }
+
+/* --- Home hero height -----------------------------------------------------------
+   style.css gives `.home .banner` 255px/295px of padding, and responsive.css
+   re-sets it at four breakpoints (180-300px each). Those out-specified the
+   plain `.banner` rule above, so the hero was 1054px tall on a 905px screen,
+   with ~300px of nothing under the scroll arrow before the next section.
+
+   Now the hero is exactly one screen: content centred in it, the arrow on its
+   bottom edge, and the next section starts straight after. */
+.home .banner {
+    min-height: 100vh;
+    min-height: 100svh;   /* phones: the screen without the browser's toolbars */
+    padding: 110px 0 96px;
+}
+
+.home .banner .scroll-cue {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 28px;
+    width: max-content;
+    margin: 0 auto;       /* centred without a transform, which the reveal animation would fight */
+    z-index: 1;
+}
+
+/* The section right under the hero needs less lead-in; the hero's own bottom
+   edge already separates them. */
+.home .banner + #leaderboard { padding-top: 56px; }

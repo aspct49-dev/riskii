@@ -1,0 +1,244 @@
+<style>
+  .div {
+    border-radius: 12px;
+    box-shadow: 0px 4px 35px 0px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.06);
+    border-style: solid;
+    border-width: 1px;
+    background-color: #252433;
+    display: flex;
+    max-width: 768px;
+    flex-direction: column;
+    padding: 18px 28px 33px;
+  }
+  @media (max-width: 991px) {
+    .div {
+      padding-left: 20px;
+    }
+  }
+  .div-2 {
+  }
+  @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+    }
+  }
+  .div-3 {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .div-3 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 65%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column {
+      width: 100%;
+    }
+  }
+  .div-4 {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 20px;
+    margin: auto 0;
+  }
+  @media (max-width: 991px) {
+    .div-4 {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  .div-5 {
+    font: 800 20px Area Normal, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-5 {
+      max-width: 100%;
+    }
+  }
+  .img {
+    aspect-ratio: 4;
+    object-fit: auto;
+    object-position: center;
+    width: 169px;
+    margin-top: 37px;
+    max-width: 100%;
+  }
+  .div-6 {
+    display: flex;
+    margin-top: 32px;
+    align-items: start;
+    gap: 10px;
+  }
+  @media (max-width: 991px) {
+    .div-6 {
+      flex-wrap: wrap;
+    }
+  }
+  .img-2 {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 39px;
+  }
+  .div-7 {
+    font-family: Area Normal, sans-serif;
+    margin-top: 15px;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+  .div-8 {
+    display: flex;
+    margin-top: 60px;
+    align-items: start;
+    gap: 10px;
+  }
+  @media (max-width: 991px) {
+    .div-8 {
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+  }
+  .img-3 {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 39px;
+  }
+  .div-9 {
+    font-family: Area Normal, sans-serif;
+    margin-top: 15px;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+  .div-10 {
+    display: flex;
+    margin-top: 37px;
+    align-items: start;
+    gap: 10px;
+  }
+  @media (max-width: 991px) {
+    .div-10 {
+      flex-wrap: wrap;
+    }
+  }
+  .img-4 {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 39px;
+  }
+  .div-11 {
+    font-family: Area Normal, sans-serif;
+    margin-top: 15px;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+  .column-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 35%;
+    margin-left: 20px;
+  }
+  @media (max-width: 991px) {
+    .column-2 {
+      width: 100%;
+    }
+  }
+  .div-12 {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .div-12 {
+      margin-top: 40px;
+    }
+  }
+  .img-5 {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 14px;
+    align-self: end;
+  }
+  .img-6 {
+    aspect-ratio: 2.5;
+    object-fit: auto;
+    object-position: center;
+    width: 236px;
+    align-self: center;
+    margin-top: 134px;
+  }
+  @media (max-width: 991px) {
+    .img-6 {
+      margin-top: 40px;
+    }
+  }
+  .img-7 {
+    aspect-ratio: 2.5;
+    object-fit: auto;
+    object-position: center;
+    width: 236px;
+    align-self: center;
+    margin-top: 11px;
+  }
+  .div-13 {
+    border-radius: 6px;
+    background-color: #1d1c27;
+    display: flex;
+    margin-top: 11px;
+    align-items: center;
+    justify-content: center;
+    padding: 26px 33px;
+  }
+  @media (max-width: 991px) {
+    .div-13 {
+      padding: 0 20px;
+    }
+  }
+  .img-8 {
+    aspect-ratio: 4;
+    object-fit: auto;
+    object-position: center;
+    width: 169px;
+  }
+  .div-14 {
+    border-radius: 7px;
+    background: linear-gradient(270deg, #86ea8f -6.58%, #57a05a 105.59%);
+    border-color: rgba(134, 234, 143, 1);
+    border-style: solid;
+    border-width: 1px;
+    align-self: center;
+    margin-top: 63px;
+    width: 319px;
+    max-width: 100%;
+    align-items: center;
+    color: #1f1e2a;
+    text-align: center;
+    justify-content: center;
+    padding: 18px 60px;
+    font: 800 14px Area Normal, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-14 {
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  }
+</style>

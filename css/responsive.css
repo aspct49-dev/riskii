@@ -1,0 +1,974 @@
+/* =======================
+  Common Media Css Starts
+======================= */
+
+@media (max-width: 991px) {
+
+    /* Header Starts  */
+
+    .header .menu-right .menu-list::after {
+        display: none;
+    }
+
+    .header .menu-right .menu-list {
+        position: absolute;
+        left: 0;
+        top: 100px;
+    }
+
+    .header .menu-right .menu-list {
+        position: absolute;
+        left: 50%;
+        top: 75px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all linear .2s;
+        width: 100%;
+        background: #252433;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        margin: 0 auto;
+        padding: 10px 15px;
+        transform: translateX(-50%);
+        -webkit-transition: all linear .2s;
+        -moz-transition: all linear .2s;
+        -ms-transition: all linear .2s;
+        -o-transition: all linear .2s;
+    }
+
+    .header .menu-right .menu-list ul li {
+        margin-right: 0;
+        padding: 0 15px;
+        line-height: 40px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: #252433;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        margin-bottom: 7px;
+    }
+
+    .header .menu-right .menu-list ul li:last-child {
+        margin-right: 0;
+        margin-bottom: 0px;
+    }
+
+    .header .menu-right .menu-list ul li a {
+        width: 100%;
+    }
+
+    .add {
+        visibility: visible !important;
+        top: 84px !important;
+        opacity: 1 !important;
+    }
+
+    /* Header Ends */
+
+    /* Footer Starts */
+
+    .footer .footer-left {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footer .footer-middle {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footer .footer-right ul {
+        justify-content: center !important;
+    }
+
+    .footer .footer-middle p {
+        padding-right: 0;
+    }
+
+    /* Footer Ends */
+}
+
+@media (max-width: 767px) {}
+
+/* ====================
+  Common Media Css Ends
+=================== */
+
+/* ==========================
+   Extra Small Device Starts
+=========================== */
+
+@media only screen and (max-width: 575px) {
+    /* Header Starts */
+
+    .header .menu-left img {
+        width: 200px;
+    }
+
+    .add {
+        top: 76px !important;
+    }
+
+    /* Header Ends */
+
+    /* ====================
+        Homepage Css Starts
+    =================== */
+
+    .home .our-offers-leaderboard .container {
+        max-width: 320px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-win span {
+        display: none;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .our-offers-list-item {
+        padding: 10px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-image {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-link {
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-win p {
+        padding: 0 15px;
+        margin-left: 0px;
+        line-height: 40px;
+        margin-bottom: 15px !important;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-btn {
+        justify-content: center;
+        position: relative;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-btn a.claim-btn {
+        line-height: 35px;
+        padding: 0 40px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-btn a.info-btn {
+        margin-left: 0;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+    }
+
+    .home .banner {
+        padding-bottom: 200px;
+        padding-top: 180px;
+    }
+
+    .home .banner h1 {
+        font-size: 28px;
+        margin-bottom: 90px !important;
+    }
+
+    .home .banner a.rewards-btn {
+        line-height: 35px;
+        padding: 0 20px;
+        margin-bottom: 40px;
+    }
+
+    .home .banner a.angle-down-btn i {
+        font-size: 20px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-heading h2,
+    .home .our-offers-leaderboard .leaderboard-content .leaderboard-content-heading h2 {
+        font-size: 28px;
+    }
+
+    .home .our-offers-leaderboard .leaderboard-content .text-center a {
+        line-height: 35px;
+        padding: 0 45px;
+    }
+
+    .home .our-offers-leaderboard .leaderboard-content .leaderboard-content-list img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .home .our-offers-leaderboard .leaderboard-content .leaderboard-content-list img:last-child {
+        margin-bottom: 0;
+    }
+
+    .home .giveways-counter .giveways-counter-item {
+        padding: 0 10px;
+        height: 35px;
+        line-height: 33px;
+    }
+
+    .home .giveways-counter li p {
+        font-size: 14px !important;
+    }
+
+    /* ====================
+        Homepage Css Ends
+    ===================== */
+    /* ==========================
+        Givewaye page Css Starts
+    ======================== */
+
+    .giveways .container {
+        max-width: 320px;
+    }
+
+    .giveways .banner {
+        padding-bottom: 200px;
+    }
+
+    .giveways .banner .banner-heading h2 {
+        font-size: 28px;
+    }
+
+    .giveways .banner .banner-list {
+        display: block;
+    }
+
+    .giveways .banner .banner-list .banner-list-item {
+        margin-bottom: 20px;
+    }
+
+    .giveways .banner .banner-list .banner-list-item:last-child {
+        margin-bottom: 0px;
+    }
+
+    /* =========================
+        Givewaye page Css Ends
+    ======================== */
+    /* =========================
+        Videos page Css Starts
+    ======================== */
+
+    .videos .banner {
+        padding-top: 100px;
+    }
+
+    .videos .banner .banner-heading h2 {
+        font-size: 28px;
+        margin-bottom: 14px !important;
+    }
+
+    .videos .explore-video-item {
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 0;
+        grid-row-gap: 15px;
+    }
+
+    .videos .explore-video-heading .explore-video-heading-bottom {
+        flex-direction: column;
+        justify-content: start !important;
+        align-items: start !important;
+        margin-bottom: 0;
+    }
+
+    .videos .explore-video-heading .explore-video-heading-bottom ul li a {
+        min-width: auto;
+        padding: 0 10px;
+    }
+
+    .videos .explore-video-heading .explore-video-heading-bottom .explore-video-heading-right {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        align-self: flex-end;
+    }
+
+    .videos div.text-center a {
+        line-height: 35px;
+        padding: 0 30px;
+    }
+
+    .videos .banner .banner-slider {
+        padding: 0px 15px;
+    }
+
+    .videos .banner .banner-slider .slick-arrow.fa-angle-left,
+    .videos .banner .banner-slider .slick-arrow.fa-angle-right {
+        font-size: 16px;
+    }
+
+    /* =========================
+        Videos page Css Ends
+    ======================== */
+    /* ==============================
+        Leaderboard page Css Starts
+    ======================== */
+
+    .leaderboard .banner .banner-heading h2 {
+        font-size: 28px;
+    }
+
+    .leaderboard .banner-box {
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 0;
+        align-items: start;
+        grid-row-gap: 40px;
+        margin-top: 105px;
+        margin-bottom: 60px;
+    }
+
+    .leaderboard .banner .banner-btn a {
+        width: 110px;
+    }
+
+    .leaderboard .banner .banner-btn span.count-down {
+        left: unset;
+        padding: 0 20px;
+        line-height: 30px;
+        top: 170px;
+        right: 0;
+    }
+
+    .leaderboard .banner .leaderboard-list .list-content .list-item .list-rank-number {
+        position: absolute;
+        top: -23.5px;
+        left: 0;
+    }
+
+    .leaderboard .banner .leaderboard-list .list-content .list-item {
+        padding: 17px;
+        margin-bottom: 25px;
+    }
+
+    .leaderboard .banner .leaderboard-list .list-content .list-item .list-prize h4 img {
+        display: none;
+    }
+
+    /* ==========================
+        Leaderboard page Css Ends
+    ======================== */
+
+    .giveways .giveways-counter .giveways-counter-item {
+        padding: 0 10px;
+        height: 35px;
+        line-height: 33px;
+    }
+
+    .giveways .giveways-counter li p {
+        font-size: 14px !important;
+    }
+
+    a.leaderboard-btn1 {
+        padding: 0px 10px;
+        right: 26px;
+        bottom: 9px;
+        line-height: 20px;
+        font-size: 10px;
+    }
+}
+
+/* ==========================
+   Extra Small Device Ends
+=========================== */
+
+/* =====================
+    Small Device Starts
+==================== */
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    /* ====================
+        Homepage Css Starts
+    =================== */
+
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-win span {
+        color: var(--text-col-1);
+        font-size: 20px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-win p {
+        padding: 0 15px;
+        margin-left: 10px;
+        line-height: 35px;
+        width: 100%;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-win {
+        margin: 20px 0;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .our-offers-list-item {
+        padding: 15px 20px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-btn a.claim-btn {
+        color: var(--text-col-3);
+        line-height: 35px;
+        padding: 0 35px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-btn {
+        justify-content: center;
+        position: relative;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-btn a.info-btn {
+        margin-left: 0;
+        position: absolute;
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+    }
+
+    .home .our-offers-leaderboard .our-offers {
+        padding-bottom: 120px;
+    }
+
+    .home .banner {
+        padding-bottom: 240px;
+        padding-top: 220px;
+    }
+
+    .home .banner h1 {
+        font-size: 32px;
+        margin-bottom: 100px !important;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-heading h2,
+    .home .our-offers-leaderboard .leaderboard-content .leaderboard-content-heading h2 {
+        font-size: 32px;
+    }
+
+    .home .banner a.rewards-btn {
+        line-height: 43px;
+        padding: 0 25px;
+    }
+
+    .home .our-offers-leaderboard .leaderboard-content .text-center a {
+        line-height: 43px;
+        padding: 0 50px;
+    }
+
+    /* ====================
+        Homepage Css Ends
+    =================== */
+
+    /* ====================
+        Giveways Css Starts
+    =================== */
+
+    .giveways .banner .banner-heading h2 {
+        font-size: 32px;
+    }
+
+    .giveways .banner .banner-list {
+        display: block;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 10px;
+    }
+
+    .giveways .banner .banner-list .banner-list-item {
+        margin-bottom: 30px;
+    }
+
+    .giveways .banner .banner-list .banner-list-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .giveways .banner {
+        padding-bottom: 230px;
+    }
+
+    /* ====================
+        Giveways Css Ends
+    =================== */
+    /* ====================
+        Videos Css Starts
+    =================== */
+
+    .videos .banner .banner-heading h2 {
+        font-size: 32px;
+    }
+
+    .videos .explore-video-item {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+    }
+
+    .videos .explore-video-heading .explore-video-heading-bottom {
+        flex-direction: column;
+        justify-content: start !important;
+        align-items: start !important;
+        margin-bottom: 0;
+    }
+
+    .videos .explore-video-heading .explore-video-heading-bottom .explore-video-heading-right {
+        align-self: flex-end;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .videos .explore-video-heading .explore-video-heading-bottom ul li a {
+        min-width: 100px;
+    }
+
+    .videos div.text-center a {
+        line-height: 38px;
+        padding: 0 30px;
+    }
+
+    .videos .banner .banner-slider .slick-active .banner-slider-item::after {
+        display: none;
+    }
+
+
+    /* ====================
+        Videos Css Ends
+    =================== */
+
+    /* =========================
+        Leaderboard Css Starts
+    ======================== */
+
+    .leaderboard .banner .banner-heading h2 {
+        font-size: 32px;
+    }
+
+    .leaderboard .banner-box {
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 0;
+        align-items: start;
+        grid-row-gap: 40px;
+        margin-bottom: 60px;
+        margin-top: 60px;
+    }
+
+    .leaderboard .banner .banner-btn span.count-down {
+        left: unset;
+        padding: 0 25px;
+        top: 145px;
+        right: 0;
+    }
+
+
+    .leaderboard .banner .leaderboard-list .list-content .list-item .list-rank-number {
+        position: absolute;
+        top: -23.5px;
+        left: 0;
+    }
+
+    .leaderboard .banner .leaderboard-list .list-content .list-item {
+        padding: 17px;
+        margin-bottom: 25px;
+    }
+
+    /* =======================
+        Leaderboard Css Ends
+    ====================== */
+    .giveways .giveways-counter .giveways-counter-item {
+        padding: 0 15px;
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .giveways .giveways-counter li p {
+        font-size: 30px !important;
+    }
+
+
+    a.leaderboard-btn1 {
+        padding: 0 20px;
+        right: 55px;
+        bottom: 15px;
+        line-height: 30px;
+    }
+}
+
+/* ====================
+    Small Device Ends
+=================== */
+
+/* =====================
+    Medium Device Starts
+==================== */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    /* ====================
+        Homepage Css Starts
+    =================== */
+
+    .home .banner {
+        padding-top: 280px;
+        padding-bottom: 260px;
+    }
+
+    .home .banner h1,
+    .home .our-offers-leaderboard .our-offers .our-offers-heading h2,
+    .home .our-offers-leaderboard .leaderboard-content .leaderboard-content-heading h2 {
+        font-size: 40px;
+    }
+
+    .home .banner a.rewards-btn {
+        padding: 0 25px;
+    }
+
+    .home .our-offers-leaderboard {
+        padding-bottom: 200px;
+    }
+
+    .home .our-offers-leaderboard .leaderboard-content .text-center a {
+        padding: 0 50px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-image {
+        margin-bottom: 20px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-link {
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .our-offers-list-item {
+        padding: 15px 20px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-btn a.claim-btn {
+        line-height: 40px;
+        padding: 0 45px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-win p {
+        padding: 0 15px;
+        margin-left: 10px;
+        line-height: 40px;
+    }
+
+    /* ====================
+        Homepage Css Ends
+    =================== */
+
+    /* ======================
+        Giveways Css Starts
+    ==================== */
+
+    .giveways .banner {
+        padding-bottom: 280px;
+    }
+
+    .giveways .banner .banner-heading h2 {
+        font-size: 40px;
+    }
+
+    .giveways .banner .banner-list .banner-list-item a {
+        line-height: 40px;
+        padding: 0 45px;
+    }
+
+    /* ====================
+        Giveways Css Ends
+    =================== */
+    /* ====================
+        Videos Css Starts
+    =================== */
+
+    .videos .banner .banner-heading h2 {
+        font-size: 40px;
+    }
+
+    .videos .explore-video-item {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+    }
+
+    .videos .explore-video-heading .explore-video-heading-bottom ul li a {
+        min-width: 100px;
+    }
+
+    .videos div.text-center a {
+        line-height: 43px;
+        padding: 0 38px;
+    }
+
+    /* ====================
+        Videos Css Ends
+    =================== */
+    /* =======================
+        Leaderboard Css Starts
+    ==================== */
+
+    .leaderboard .banner .banner-heading h2 {
+        font-size: 40px;
+    }
+
+    .leaderboard .banner .banner-box {
+        margin-bottom: 60px;
+    }
+
+    .leaderboard .banner .leaderboard-list .list-content .list-item .list-rank-number {
+        position: absolute;
+        top: -23.5px;
+        left: 0;
+    }
+
+    .leaderboard .banner .leaderboard-list .list-content .list-item {
+        padding: 17px;
+        margin-bottom: 25px;
+    }
+
+    /* ====================
+        Leaderboard Css Ends
+    =================== */
+
+    a.leaderboard-btn1 {
+        padding: 0 40px;
+        right: 78px;
+        bottom: 20px;
+        line-height: 40px;
+    }
+
+}
+
+/* ====================
+    Medium Device Ends
+=================== */
+
+/* =====================
+    Large Device Starts
+==================== */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    /* Header Starts */
+
+    .header .menu-left img {
+        width: 250px;
+    }
+
+    /* Header Ends */
+
+
+    /* ======================
+    Home Pages Starts 
+===================== */
+
+    .home .banner {
+        padding-top: 300px;
+    }
+
+    .home .our-offers-leaderboard .our-offers .our-offers-list .offers-list-item-win p {
+        padding: 0 15px;
+        margin-left: 10px;
+        line-height: 42px;
+    }
+
+    /* ======================
+    Home Pages Ends 
+    ===================== */
+    /* =========================
+        Leaderboard Pages Starts 
+    ======================= */
+
+    .leaderboard .banner .banner-btn span.count-down {
+        left: -50px;
+    }
+
+    /* ======================
+        Leaderboard Pages Ends 
+    ===================== */
+
+    .giveways .giveways-counter .giveways-chip-2 {
+        right: 0;
+    }
+
+    .giveways .giveways-counter .giveways-chip-1 {
+        left: 0;
+    }
+
+    .giveways .giveways-counter .giveways-chip-3 {
+        right: 100px;
+    }
+
+    a.leaderboard-btn1 {
+        padding: 0 80px;
+        right: 95px;
+        bottom: 35px;
+    }
+}
+
+/* ====================
+    Large Device Ends
+=================== */
+
+/* ==========================
+    Extra Large Device Starts
+========================= */
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    a.leaderboard-btn1 {
+        right: 106px;
+        bottom: 50px;
+    }
+}
+@media (max-width: 575px) {
+    .enlarge-btn img {
+        width: 120px; /* Smaller size for smaller screens */
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .enlarge-btn img {
+        width: 130px; /* Medium size for small devices */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .enlarge-btn img {
+        width: 140px; /* Medium size for medium devices */
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .enlarge-btn img {
+        width: 150px; /* Larger size for large devices */
+    }
+}
+
+@media (min-width: 1200px) {
+    .enlarge-btn img {
+        width: 150px; /* Default size for extra large devices */
+    }
+}
+/* =========================
+    Extra Large Device Ends
+========================= */
+/* Adjust banner margins for mobile */
+@media only screen and (max-width: 767px) {
+    .banner {
+        margin-top: 120px;
+        margin-bottom: 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .banner-content {
+        padding: 10px;
+    }
+
+    .banner-content img {
+        width: 100%;
+        height: auto;
+    }
+
+    .banner h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .banner a.rewards-btn {
+        padding: 10px 20px;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    .banner a.angle-down-btn i {
+        font-size: 20px;
+    }
+
+    .header .menu-right .menu-list {
+        top: 60px;
+        background: #1F1E2A;
+        padding: 10px;
+    }
+}
+
+/* General mobile adjustments */
+@media only screen and (max-width: 575px) {
+    .header .logo-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .header .menu-right .menu-list ul li {
+        padding: 10px;
+    }
+
+    .our-offers-leaderboard .offer-row {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .offer-column {
+        margin-bottom: 10px;
+    }
+
+    .footer .footer-left, .footer .footer-middle, .footer .footer-right {
+        text-align: center;
+    }
+
+    .footer .footer-middle p {
+        padding: 0 10px;
+    }
+}
+
+/* Ensure video elements are responsive */
+.video-container, .banner-video {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.banner-video video {
+    width: 100%;
+    height: auto;
+}
+
+/* Fix logo video issues */
+.logo-video {
+    width: 250px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Banner adjustments */
+.banner-content img {
+    width: 100%;
+    height: auto;
+}
+
+.banner-content {
+    padding: 10px;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.rewards-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Footer adjustments for mobile */
+.footer-left, .footer-middle, .footer-right {
+    text-align: center;
+    margin-bottom: 20px;
+}
