@@ -43,6 +43,18 @@ return [
             'logo'  => '/images/csgoroll.webp',
             'link'  => 'https://csgoroll.com/r/riiski',
         ],
+        [
+            'name'  => 'CSGOEmpire',
+            'bonus' => 'Use code RiiSki',
+            'logo'  => '/images/csgoempire-logo.png',
+            'link'  => 'https://csgoempire.com/r/riiski',
+        ],
+        [
+            'name'  => 'Roobet',
+            'bonus' => 'Use code RiiSki',
+            'logo'  => '/images/roobet-logo.png',
+            'link'  => 'https://roobet.com/?ref=riiski',
+        ],
     ],
 
 
