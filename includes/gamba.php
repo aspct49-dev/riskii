@@ -57,7 +57,9 @@ function gamba_http(string $url, ?string $postBody = null): ?array
 
     $raw    = curl_exec($ch);
     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    // No curl_close(): handles are objects freed on scope exit since PHP 8.0,
+    // and PHP 8.5 (what Vercel runs) deprecates the call — the notice it
+    // raised was being printed at the top of every page that hit Gamba.
 
     if ($raw === false || $status !== 200) {
         return null;
