@@ -19,7 +19,6 @@ $path = preg_replace('/\.php$/', '', $path);   // old links like /leaderboard.ph
 const REDIRECTS = [
     'index'    => '/',
     'duelbits' => '/gamba',     // sponsor before Gamba
-    'rewards'  => '/gamba',     // reward tiers removed
     'videos'   => '/',
     'stream'   => '/',
 ];
@@ -29,6 +28,7 @@ const PAGES = [
     'gamba'       => 'gamba',
     'leaderboard' => 'leaderboard',
     'giveaways'   => 'giveaways',
+    'rewards'     => 'rewards',
 ];
 
 if (isset(REDIRECTS[$path])) {

@@ -115,8 +115,9 @@ $NAV = [
             </nav>
         </div>
 
-        <a href="<?= e(SPONSOR_LINK) ?>" target="_blank" rel="noopener sponsored" class="claim-rewards-btn">
-            <i class="fa-solid fa-gift"></i> Claim Bonus
+        <a href="/rewards" class="claim-rewards-btn<?= $ACTIVE === 'rewards' ? ' is-current' : '' ?>"
+           <?= $ACTIVE === 'rewards' ? 'aria-current="page"' : '' ?>>
+            <i class="fa-solid fa-gift"></i> Rewards
         </a>
 
         <button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">

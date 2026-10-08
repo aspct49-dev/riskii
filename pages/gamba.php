@@ -6,7 +6,7 @@ $race = gamba_race();
 
 $PAGE_TITLE = SPONSOR_NAME . ' — ' . SITE_NAME;
 $PAGE_DESC  = 'Sign up to ' . SPONSOR_NAME . ' with code ' . SPONSOR_CODE
-            . ' for instant rakeback, loyalty rewards and entry to the '
+            . ' for instant lossback, rank-up bonuses and entry to the '
             . money($race['pool'], 0) . ' monthly leaderboard.';
 $BODY_CLASS = 'home sponsor-page';
 $ACTIVE     = 'gamba';
@@ -26,8 +26,8 @@ require __DIR__ . '/../includes/header.php';
             <?= e(SPONSOR_NAME) ?> <span>&times;</span> <?= e(SITE_NAME) ?>
         </h1>
         <p class="gm-lb-sub font-pop-bld">
-            Instant rakeback, wager milestones and a <?= e(money($race['pool'], 0)) ?>
-            monthly leaderboard. One code unlocks all three.
+            Instant lossback, rank-up bonuses and a <?= e(money($race['pool'], 0)) ?>
+            monthly leaderboard. One code unlocks all of it.
         </p>
 
         <div class="d-flex justify-content-center mb-4">
@@ -65,10 +65,10 @@ require __DIR__ . '/../includes/header.php';
 
             <div class="gm-step">
                 <div class="gm-step-n">2</div>
-                <h3>Unlock rakeback &amp; rewards</h3>
+                <h3>Unlock your rewards</h3>
                 <p>
-                    Daily, weekly and monthly rakeback switches on, plus loyalty tips and bonus
-                    drops for playing under the code.
+                    Instant lossback up to 20%, rank-up and level bonuses, and 95% affiliate
+                    commission. <a href="/rewards" style="color:var(--gm-green)">See all rewards</a>
                 </p>
             </div>
 

@@ -942,3 +942,85 @@ body > .site-footer { margin-top: auto; }
 /* The section right under the hero needs less lead-in; the hero's own bottom
    edge already separates them. */
 .home .banner + #leaderboard { padding-top: 56px; }
+
+/* --- Header button on its own page ------------------------------------------- */
+.claim-rewards-btn.is-current { box-shadow: 0 0 0 2px rgba(46, 243, 150, .35); }
+
+/* =============================================================================
+   Rewards — the Gamba perks
+   Four cards, two across. Each is one line of copy with its figure lit in the
+   accent colour, so the numbers are what the eye lands on.
+   ========================================================================== */
+.gm-perks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 920px;
+    margin: 0 auto 40px;
+}
+
+.gm-perk {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 26px;
+    background: var(--gm-hull);
+    border: 1px solid var(--gm-edge);
+    border-radius: 18px;
+    color: inherit;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.gm-perk:hover {
+    border-color: rgba(46, 243, 150, .4);
+    transform: translateY(-3px);
+    box-shadow: var(--gm-shadow);
+    color: inherit;
+}
+
+.gm-perk-icon {
+    flex: none;
+    width: 54px; height: 54px;
+    display: grid; place-items: center;
+    border-radius: 14px;
+    background: rgba(46, 243, 150, .1);
+    border: 1px solid rgba(46, 243, 150, .3);
+    color: var(--gm-green);
+    font-size: 22px;
+}
+
+.gm-perk-text {
+    margin: 0;
+    font-size: clamp(17px, 1.7vw, 21px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+}
+.gm-perk-text span {
+    background: var(--gm-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Only the leaderboard card is a link; the arrow says so. */
+.gm-perk-go {
+    margin-left: auto;
+    color: var(--gm-dim);
+    transition: color .18s ease, transform .18s ease;
+}
+.gm-perk:hover .gm-perk-go { color: var(--gm-green); transform: translateX(3px); }
+
+.gm-perks-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+@media (max-width: 767px) {
+    .gm-perks { grid-template-columns: 1fr; }
+    .gm-perk { padding: 22px 20px; gap: 16px; }
+    .gm-perk-icon { width: 46px; height: 46px; font-size: 19px; }
+}

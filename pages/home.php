@@ -6,7 +6,7 @@ $race = gamba_race();
 $top  = array_slice($race['competitors'], 0, 3);
 
 $PAGE_TITLE = SITE_NAME . ' — Exclusive ' . SPONSOR_NAME . ' Bonuses & Leaderboard';
-$PAGE_DESC  = 'Play on ' . SPONSOR_NAME . ' with code ' . SPONSOR_CODE . ' for instant rakeback and a '
+$PAGE_DESC  = 'Play on ' . SPONSOR_NAME . ' with code ' . SPONSOR_CODE . ' for instant lossback and a '
             . money($race['pool'], 0) . ' monthly leaderboard.';
 $BODY_CLASS = 'home';
 $ACTIVE     = 'index';

@@ -45,18 +45,27 @@ return [
         ],
         [
             'name'  => 'CSGOEmpire',
-            'bonus' => 'Use code RiiSki',
+            'bonus' => 'Free Case',
             'logo'  => '/images/csgoempire-logo.png',
             'link'  => 'https://csgoempire.com/r/riiski',
         ],
         [
             'name'  => 'Roobet',
-            'bonus' => 'Use code RiiSki',
+            'bonus' => 'INSTANT Roowards',
             'logo'  => '/images/roobet-logo.png',
             'link'  => 'https://roobet.com/?ref=riiski',
         ],
     ],
 
+
+    // What playing on Gamba under the code gets you, shown on /rewards.
+    // Text in [brackets] is drawn in the accent colour.
+    'gamba_perks' => [
+        ['icon' => 'fa-trophy',          'text' => '[$1,000] Monthly Leaderboard', 'link' => '/leaderboard'],
+        ['icon' => 'fa-bolt',            'text' => 'INSTANT Lossback up to [20%]'],
+        ['icon' => 'fa-ranking-star',    'text' => 'Rank-Up + Level Bonuses'],
+        ['icon' => 'fa-hand-holding-dollar', 'text' => '[95%] Affiliate Commission to you, the player'],
+    ],
 
     // Running total shown on the home page.
     'given_away' => 158400,
