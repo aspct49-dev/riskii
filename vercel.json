@@ -4,7 +4,7 @@
     "api/*.php": {
       "runtime": "vercel-php@0.9.0",
       "maxDuration": 15,
-      "excludeFiles": "{images,fonts,css,js,songs,node_modules,.git}/**"
+      "excludeFiles": "{images,fonts,css,js,songs,node_modules,.git,.vercel,dashboard,xtest}/**"
     }
   },
   "redirects": [
@@ -12,7 +12,7 @@
     { "source": "/pages/:path*", "destination": "/", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/:path*", "destination": "/api/index?__route=:path*" }
+    { "source": "/(.*)", "destination": "/api/index?__route=$1" }
   ],
   "headers": [
     {
