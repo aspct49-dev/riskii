@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/config.php';
 
-$PAGE_TITLE = 'Page not found — ' . SITE_NAME;
+$PAGE_TITLE = 'Page not found - ' . SITE_NAME;
 $PAGE_DESC  = 'That page does not exist.';
 $BODY_CLASS = 'not-found';
 $ACTIVE     = '';

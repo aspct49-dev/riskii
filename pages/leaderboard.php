@@ -10,7 +10,7 @@ $rest        = array_slice($competitors, 3, 7);   // places 4–10
 $live        = $race['ends_at'] !== null && $race['ends_at'] > time();
 $started     = $race['start_date'] === null || strtotime($race['start_date'] . ' UTC') <= time();
 
-$PAGE_TITLE  = 'Leaderboard — ' . SITE_NAME;
+$PAGE_TITLE  = 'Leaderboard - ' . SITE_NAME;
 $PAGE_DESC   = 'Wager on ' . SPONSOR_NAME . ' with code ' . $race['code'] . ' and compete for the '
              . money($race['pool'], 0) . ' ' . $race['name'] . ' prize pool.';
 $BODY_CLASS  = 'leaderboard';

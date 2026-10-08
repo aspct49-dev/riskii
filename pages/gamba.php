@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/gamba.php';
 
 $race = gamba_race();
 
-$PAGE_TITLE = SPONSOR_NAME . ' — ' . SITE_NAME;
+$PAGE_TITLE = SPONSOR_NAME . ' - ' . SITE_NAME;
 $PAGE_DESC  = 'Sign up to ' . SPONSOR_NAME . ' with code ' . SPONSOR_CODE
             . ' for instant lossback, rank-up bonuses and entry to the '
             . money($race['pool'], 0) . ' monthly leaderboard.';

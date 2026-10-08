@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/config.php';
 
-$PAGE_TITLE = 'Giveaways — ' . SITE_NAME;
+$PAGE_TITLE = 'Giveaways - ' . SITE_NAME;
 $PAGE_DESC  = 'Giveaways are coming back to ' . SITE_NAME . '. Join the Discord to hear first.';
 $BODY_CLASS = 'giveways';
 $ACTIVE     = 'giveaways';

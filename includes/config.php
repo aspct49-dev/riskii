@@ -40,7 +40,10 @@ define('GAMBA_CACHE_TTL',  120); // seconds
 define('GAMBA_SNAPSHOT_FILE', __DIR__ . '/gamba-race.snapshot.json');
 
 // --- Site --------------------------------------------------------------------
-define('SITE_NAME',    'RogueRewards');
+define('SITE_NAME',    'ROGUERewards');
+// Where the site lives. Link previews (Discord, X, iMessage) ignore relative
+// image URLs, so og:image and og:url are built from this.
+define('SITE_URL',     'https://www.roguerewards.gg');
 define('SITE_TWITTER', 'https://twitter.com/ROGUERewards');
 define('SITE_INSTA',   'https://instagram.com/ROGUERewards');
 define('SITE_DISCORD', 'https://discord.gg/riiski');

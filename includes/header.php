@@ -11,6 +11,8 @@ $BODY_CLASS = $BODY_CLASS ?? '';
 $ACTIVE     = $ACTIVE     ?? '';
 // Page-specific stylesheets, e.g. $PAGE_CSS = ['css/rewards.css'];
 $PAGE_CSS   = $PAGE_CSS   ?? [];
+// The page's one true address; absent on the 404, which has none.
+$CANONICAL  = $ACTIVE === '' ? null : SITE_URL . ($ACTIVE === 'index' ? '/' : '/' . $ACTIVE);
 
 $NAV = [
     'index'       => 'Home',
@@ -30,17 +32,32 @@ $NAV = [
     <meta name="description" content="<?= e($PAGE_DESC) ?>">
     <meta name="keywords" content="roguerewards, riiski, gamba, gamba leaderboard, riiski gamba code">
     <meta name="author" content="Riiski">
-    <meta name="theme-color" content="#0B0E14">
+    <!-- Discord colours the embed's side bar with this. -->
+    <meta name="theme-color" content="#2EF396">
+<?php if ($CANONICAL): ?>
+    <link rel="canonical" href="<?= e($CANONICAL) ?>">
+<?php endif; ?>
 
+    <!-- Link previews. Every URL here is absolute: Discord, X and iMessage
+         silently drop relative ones, which is why the old preview had no image. -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<?= e(SITE_NAME) ?>">
     <meta property="og:title" content="<?= e($PAGE_TITLE) ?>">
     <meta property="og:description" content="<?= e($PAGE_DESC) ?>">
-    <meta property="og:image" content="images/logo.png">
+<?php if ($CANONICAL): ?>
+    <meta property="og:url" content="<?= e($CANONICAL) ?>">
+<?php endif; ?>
+    <meta property="og:image" content="<?= e(SITE_URL) ?>/images/og-card.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ROGUERewards: Better Bonuses. Real Payouts. Official Gamba partner.">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@ROGUERewards">
     <meta name="twitter:title" content="<?= e($PAGE_TITLE) ?>">
     <meta name="twitter:description" content="<?= e($PAGE_DESC) ?>">
+    <meta name="twitter:image" content="<?= e(SITE_URL) ?>/images/og-card.jpg">
 
     <title><?= e($PAGE_TITLE) ?></title>
     <link rel="icon" type="image/png" href="/images/favicon.png">

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/config.php';
 
-$PAGE_TITLE = 'Rewards — ' . SITE_NAME;
+$PAGE_TITLE = 'Rewards - ' . SITE_NAME;
 $PAGE_DESC  = 'Play on ' . SPONSOR_NAME . ' with code ' . SPONSOR_CODE
             . ': a $1,000 monthly leaderboard, instant lossback up to 20%, rank-up bonuses and 95% affiliate commission.';
 $BODY_CLASS = 'rewards-page';
