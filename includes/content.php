@@ -74,5 +74,5 @@ return [
     ],
 
     // Running total shown on the home page.
-    'given_away' => 158400,
+    'given_away' => 159400,
 ];

@@ -15,15 +15,15 @@ define('SPONSOR_LOGO',  '/images/gamba-logo-light.png');
 
 // --- The leaderboard we mirror -----------------------------------------------
 // Gamba hosts the race; we render its standings. The id is the one in the URL
-// of https://gamba.com/promotions/exclusive-leaderboards/22969
-define('GAMBA_RACE_ID',  22969);
-define('GAMBA_RACE_URL', 'https://gamba.com/promotions/exclusive-leaderboards/22969');
+// of https://gamba.com/promotions/exclusive-leaderboards/28282
+define('GAMBA_RACE_ID',  28282);
+define('GAMBA_RACE_URL', 'https://gamba.com/promotions/exclusive-leaderboards/28282');
 
 // Gamba's public GraphQL gateway speaks automatic persisted queries: the query
 // itself is never sent, only the sha256 of the document their client ships. The
 // hash below is `getRaceById` as of their current build. If Gamba rebuild and
 // change that document, the gateway answers PersistedQueryNotFound and
-// api/gamba.php falls back to posting the full query instead.
+// includes/gamba.php falls back to posting the full query instead.
 define('GAMBA_API',        'https://gamba.com/_api/@');
 define('GAMBA_QUERY_HASH', 'fce626ac48edaaf1714f52415711e5dae485413957763c994722e034350e8e29');
 
@@ -31,7 +31,8 @@ define('GAMBA_QUERY_HASH', 'fce626ac48edaaf1714f52415711e5dae485413957763c994722
 // path on Vercel — the deployment itself is read-only. Each serverless
 // instance keeps its own copy, which is fine: the file is a hot cache, and a
 // miss just means one more call to Gamba.
-define('GAMBA_CACHE_FILE', sys_get_temp_dir() . '/rogue-gamba-race.json');
+// Named per race, so changing GAMBA_RACE_ID can never serve the old race from a warm cache.
+define('GAMBA_CACHE_FILE', sys_get_temp_dir() . '/rogue-gamba-race-' . GAMBA_RACE_ID . '.json');
 define('GAMBA_CACHE_TTL',  120); // seconds
 
 // Last-resort copy of the race, committed with the site. Refresh it with
